@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html ng-app="TennisApp">
+
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <meta name="google-signin-client_id" content="TennisApp.apps.googleusercontent.com">
+
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        
+        <title>Tennis Doctors</title>
+        
+        <style type="text/css">
+        
+            .words{
+                padding-top:1rem;
+            }
+            
+            .upper{
+                background-color:lightgray;
+                height:10rem;
+            }
+            
+            .lower{
+                background-color:darkgrey;
+                height:3rem;
+            }
+        
+            .space{
+                height:1rem;
+            }
+            
+            .more_space{
+                height:3rem;
+            }
+            
+            .right{
+                position:relative;
+                float:right;
+            }
+        </style>
+        
+    
+    </head>
+    
+    <body ng-controller="MainController as vm">
+    
+        <script src="/assets/js/log.js"></script>
+    
+        <div id="header">
+            
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Tennis Doctor</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link words" href="/..">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link words" href="#">Court Scheduling</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link words" href="#">Intructional Videos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><button type="button" class="btn btn-outline-primary">Login/Register</button></a>         
+                        </li>
+<!--
+                        <li class="nav-item">
+                            <a class="nav-link"><button type="button" class="btn btn-outline-primary">Register</button></a>         
+                        </li>
+-->
+                    </ul>
+                </div>
+            </nav>
+            
+        </div>
+        
+        <div class="more_space"></div>
+        
+        <div class="container">
+            
+            <div id="page-content">
+            
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">This will also act as your user name.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button id="log-button" type="submit" class="btn btn-primary">Login</button>
+                
+                <a href="signup"><button id="reg-button" type="button" class="btn btn-outline-primary">Register</button></a>
+                
+<!--                <button id="sign-up-button" type="submit" class="btn btn-outline-primary" hidden="true">Sign Up!</button>-->
+                
+                <div class="space"></div>
+<!--
+                <script>
+                    
+//                    $('#log-button').click(function(){
+//                    });
+                    
+                    function onSignIn(googleUser) {
+                        var profile = googleUser.getBasicProfile();
+                        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                        console.log('Name: ' + profile.getName());
+                        console.log('Image URL: ' + profile.getImageUrl());
+                        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                    }
+                    
+                    
+                
+                    $('#reg-button').click(function(){
+                        if($('#log-button').hasClass('btn-primary')){
+                            $('#log-button').addClass('btn-outline-primary');
+                            $('#reg-button').addClass('btn-primary');
+                            $('#log-button').removeClass('btn-primary');
+                            $('#reg-button').removeClass('btn-outline-primary');
+                        }
+                        $('#reg-button').hide();
+                        $('#second-pass').removeAttr('hidden');
+                        $('#sign-up-button').removeAttr('hidden');
+                        
+                    });
+                    
+                </script>
+-->
+                
+            </form>
+                   
+<!--                <a href="/auth/google"><span class="g-signin2"></span></a>
+-->
+                <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Log-in with Google</a>
+    
+            </div>
+        </div>
+        
+        <div class="more_space"></div>
+        
+        <div class="space"></div>
+        
+        <div class="more_space"></div>
+        
+        <div id="footer">
+        
+            <div class="upper"></div>
+            <div class="lower">
+                <a href=""><img src="/assets/images/facebook-logo.svg" style="height:2.5rem;width:2.5rem;margin-top:.5rem;position:relative;float:right;"></a>
+            </div>
+        
+        </div>
+        
+        
+    </body>
+
+</html>
