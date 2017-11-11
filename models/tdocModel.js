@@ -9,6 +9,12 @@ var tdocSchema = Schema ({
         password     : String,
 //    videoPurchased: String
     },
+      facebook         : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
     google           : {
         id           : String,
         token        : String,
