@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var upload = require('express-fileupload');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
@@ -14,6 +15,8 @@ var routes = require('./routes/routes.js');
 app.use(morgan('dev')); // log every request to the console
 
 app.use(cookieParser()); // read cookies (needed for auth)
+
+app.use(upload());
 
 //app.use(bodyParser()); // get information from html forms
 

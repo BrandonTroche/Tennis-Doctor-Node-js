@@ -1,7 +1,12 @@
-var passport = require('passport');
+var passport          = require('passport');
 
-var parser = require('body-parser');
+var parser           = require('body-parser');
 var urlencodedParser = parser.urlencoded({extended : false});
+
+var upload           = require('express-fileupload');
+var path             = require("path");
+
+var User             = require('../models/tdocModel.js');
 
 module.exports = function(app){
     app.use('/', function(req, res, next){
@@ -17,6 +22,13 @@ module.exports = function(app){
         res.render('login'); 
     });
     
+    // process the login form
+    app.post('/login', urlencodedParser, passport.authenticate('local-login', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+    
     app.get('/signup', function(req, res, next){
         res.render('signup', { message: req.flash('signupMessage') }); 
     });
@@ -24,13 +36,6 @@ module.exports = function(app){
     app.post('/signup', urlencodedParser, passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
-
-    // process the login form
-    app.post('/login', urlencodedParser, passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
     
@@ -80,7 +85,53 @@ module.exports = function(app){
         req.logout();
         res.redirect('/');
     });
+    
+     // =====================================
+    // Profile Photo Upload Routes =====================
+    // =====================================
+    
+    app.get('/fileupload', function(req, res){
+        res.sendFile(__dirname+"/public");
+//        res.redirect('/profile');
+    });
+    
+    app.post('/fileupload',function(req,res){
+        console.log(req.files);
+        if(req.files.upfile){
+            res.redirect('/profile');
+            var file = req.files.upfile,
+                name = file.name,
+                type = file.mimetype;
+            var uploadpath = path.join(__dirname, '/../public/uploads/', name);
+            file.mv(uploadpath,function(err){
+                if(err){
+                    console.log("File Upload Failed",name,err);
+//                    res.send("Error Occured!")
+                }
+                else {
+                    console.log("File Uploaded",name);
+//                    res.send('Done! Uploading files');
+                }
+            });
+//            req.user.local.picture = name;
+            User.findById( req.user._id, function (err, usr) {
+                if (err) return handleError(err);
+  
+                usr.local.picture = name;
+                usr.save(function (err, updatedUser) {
+                    if (err) return handleError(err);
+//                    res.send(updatedUser);
+                    console.log('done with database update');
+                });
+            });
+        }
+        else {
+//            res.send("No File selected !");
+            res.end();
+        };
+    });
 }
+
 
 function isLoggedIn(req, res, next) {
 

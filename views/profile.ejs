@@ -17,6 +17,18 @@
     </div>
 
     <div class="row">
+        
+        
+        <div class="col-sm-6">
+        
+            <img src="<%= '/assets/uploads/' + user.local.picture  %>" style="height:300px;width:300px;">
+            <form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data">
+                <h1>Upload File Here</h1>
+                <input type="file" name="upfile" value="">
+                <input type="submit" />
+            </form>
+        
+        </div>
 
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
@@ -26,6 +38,7 @@
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>picture</strong>: <%= user.local.picture %><br>
                         <strong>password</strong>: <%= user.local.password %>
                     </p>
 
@@ -42,7 +55,8 @@
                         <strong>id</strong>: <%= user.google.id %><br>
                         <strong>token</strong>: <%= user.google.token %><br>
                         <strong>email</strong>: <%= user.google.email %><br>
-                        <strong>name</strong>: <%= user.google.name %>
+                        <strong>name</strong>: <%= user.google.name %><br>
+                        <strong>picture</strong>: <%= user.google.picture %>
                     </p>
 
             </div>

@@ -7,7 +7,7 @@ var tdocSchema = Schema ({
     local            :{
         email        : String,
         password     : String,
-//    videoPurchased: String
+        picture      : String
     },
       facebook         : {
         id           : String,
@@ -19,7 +19,8 @@ var tdocSchema = Schema ({
         id           : String,
         token        : String,
         email        : String,
-        name         : String
+        name         : String,
+        picture      : String
     }
 });
 
