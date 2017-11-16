@@ -6,8 +6,44 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }   
+
+        button:hover, a:hover {
+            opacity: 0.7;
+        }
     </style>
+    
 </head>
+    
 <body>
 <div class="container">
 
@@ -19,15 +55,57 @@
     <div class="row">
         
         
+<!--         PROFILE PICTURE -->
+<!--
         <div class="col-sm-6">
         
-            <img src="<%= '/assets/uploads/' + user.local.picture  %>" style="height:300px;width:300px;">
+            <img src="<%= '/assets/uploads/' + user.local.picture  %>" style="height:100%;width:100%;">
             <form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data">
-                <h1>Upload File Here</h1>
+                <h1 style="padding=0;margin=0;"><strong><%= user.google.name %></strong></h1><br>
+                <h3><strong>Location: Bronx, New York</strong></h3>
                 <input type="file" name="upfile" value="">
                 <input type="submit" />
             </form>
         
+        </div>
+-->
+                
+        <!-- SAMPLE PAIR CARD (USER IS OFFERED USER PAIR) -->
+        <div class="col-sm-6">
+            <div class="card">
+                <img src="<%= '/assets/uploads/' + user.local.picture  %>" alt="John" style="width:100%">
+                <h1><%= user.google.name %></h1>
+                <p class="title">Bronx, New York</p>
+                <p>Play Level: 1</p>
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a> 
+                <a href="#"><i class="fa fa-linkedin"></i></a> 
+                <a href="#"><i class="fa fa-facebook"></i></a> 
+                <p><button>Contact</button></p>
+            </div>
+            <form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data" style="text-align:center;">
+                <input type="file" name="upfile" value="" style="position:relative;margin-left:130px;">
+                <input type="submit" value="Save Picture"/>
+            </form>
+        </div>
+        
+        
+        <!-- DESCRIPTION INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Description</h3>
+
+<!--
+                <form action="/action_page.php" id="usrform">
+                    <input type="text" name="usrname" value="Description...">
+-->
+                <form action="" id="descriptionForm" method="post">
+                    <textarea style="resize:none;height:200px;width:98%;" name="descriptionText"></textarea>
+                    <input type="submit" value="Save">
+                </form>
+
+
+            </div>
         </div>
 
         <!-- LOCAL INFORMATION -->
