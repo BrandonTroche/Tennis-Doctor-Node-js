@@ -2,11 +2,14 @@
 <html>
 <head>
     <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-        .card {
+        body        { word-wrap:break-word; }
+        .card-pro {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             max-width: 300px;
             margin: auto;
@@ -18,7 +21,7 @@
             font-size: 18px;
         }
 
-        button {
+        .button-card {
             border: none;
             outline: 0;
             display: inline-block;
@@ -31,13 +34,13 @@
             font-size: 18px;
         }
 
-        a {
+        .a-card {
             text-decoration: none;
             font-size: 22px;
             color: black;
         }   
 
-        button:hover, a:hover {
+        .button-card:hover, .a-card:hover {
             opacity: 0.7;
         }
     </style>
@@ -45,43 +48,65 @@
 </head>
     
 <body>
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
-
-    <div class="row">
-        
-        
-<!--         PROFILE PICTURE -->
-<!--
-        <div class="col-sm-6">
-        
-            <img src="<%= '/assets/uploads/' + user.local.picture  %>" style="height:100%;width:100%;">
-            <form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data">
-                <h1 style="padding=0;margin=0;"><strong><%= user.google.name %></strong></h1><br>
-                <h3><strong>Location: Bronx, New York</strong></h3>
-                <input type="file" name="upfile" value="">
-                <input type="submit" />
-            </form>
-        
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#"><img src="../assets/images/tennis.svg" style="height:30px;width:30px;"></a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= user.google.name %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                    <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                </div>
+            </div>
         </div>
--->
+    </nav>  
+    
+    <div class="container">
+    
+
+
+        <div class="page-header text-center">
+            <h1><span class="fa fa-anchor" style="padding-bottom:50px;"></span> Profile Page</h1>
+<!--            <a href="/logout" class="btn btn-default btn-sm">Logout</a>-->
+        </div>
+
+        <div class="row">
                 
         <!-- SAMPLE PAIR CARD (USER IS OFFERED USER PAIR) -->
         <div class="col-sm-6">
-            <div class="card">
+            <div class="card-pro">
                 <img src="<%= '/assets/uploads/' + user.local.picture  %>" alt="John" style="width:100%">
                 <h1><%= user.google.name %></h1>
                 <p class="title">Bronx, New York</p>
                 <p>Play Level: 1</p>
-                <a href="#"><i class="fa fa-dribbble"></i></a> 
-                <a href="#"><i class="fa fa-twitter"></i></a> 
-                <a href="#"><i class="fa fa-linkedin"></i></a> 
-                <a href="#"><i class="fa fa-facebook"></i></a> 
-                <p><button>Contact</button></p>
+                <div class="progress rounded-0">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+<!--
+                <a href="#" class="a-card"><i class="fa fa-dribbble"></i></a> 
+                <a href="#" class="a-card"><i class="fa fa-twitter"></i></a> 
+                <a href="#" class="a-card"><i class="fa fa-linkedin"></i></a> 
+                <a href="#" class="a-card"><i class="fa fa-facebook"></i></a> 
+-->
+                <p><button class="button-card">Contact</button></p>
             </div>
             <form class="fileupload" action="fileupload" method="post" enctype="multipart/form-data" style="text-align:center;">
                 <input type="file" name="upfile" value="" style="position:relative;margin-left:130px;">
@@ -159,5 +184,10 @@
     </div>
 
 </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>$(function () {$('[data-toggle="popover"]').popover()});</script>
 </body>
 </html>
