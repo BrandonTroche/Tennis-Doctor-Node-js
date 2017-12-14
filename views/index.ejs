@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
+        <link rel="icon" href="../assets/images/tennis.png">
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     
@@ -78,12 +79,25 @@
                         </li>
 -->
                     </ul>
+                    <% if (user) {%>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= user.google.name %>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="profile"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                            <a class="dropdown-item" href="settings"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                            <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                        </div>
+                    </div>
+                    <% } else {%>
                     <form action="/login" method="post" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="email" name="email" placeholder="Email" aria-label="UserName">
                         <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" aria-label="Password">
                         <button id="log-button" type="submit" class="btn btn-outline-primary">Login</button>
-                        <a class="nav-link" href="signup" style="padding:4px;margin:0;"><button type="button" class="btn btn-outline-primary" style="">Sign Up</button></a>
+                        <a class="nav-link" href="signup" style="padding:4px;margin:0;"><button type="button" class="btn btn-outline-primary" style="">Register</button></a>
                     </form>
+                    <% } %>
                     
 <!--    
             <div class="dropdown">
@@ -115,6 +129,47 @@
             
             <div class="container">
             
+                    <div class="row">
+      <div class="col-sm-6 p-x m-b-lg">
+        <div class="p-x">
+          <h6 class="text-muted text-uppercase m-b">Standard Account</h6>
+<!--          <img class="m-b" src="assets/img/startup-15.svg">-->
+            <span class="m-b"><h1>$5.99<span style="font-size:16px">/mo</span></h1></span>
+          <p>Gain access to the best tennis pairing site around.</p>
+        </div>
+
+        <ul class="list-unstyled list-bordered text-left m-y-md">
+          <li class="p-y"><strong>Pair Locally</strong> Never get offers from too far.</li>
+          <li class="p-y"><strong>Discount Courts</strong> Get courts for lower than peak prices. We negotiate on behalf of our users!</li>
+            <li class="p-y"><strong>Customer Service</strong> Have a question? We're dedicated to getting you answers.</li>
+        </ul>
+
+        <button class="btn btn-lg btn-primary btn-block">
+          More <span class="visible-lg-inline">Info</span>
+        </button>
+      </div>
+
+      <div class="col-sm-6 p-x m-b-lg">
+        <div class="p-x">
+          <h6 class="text-muted text-uppercase m-b">Premium Account</h6>
+<!--          <img class="m-b" src="assets/img/startup-16.svg">-->
+            <span class="m-b"><h1>$9.99<span style="font-size:16px">/mo</span></h1></span>
+          <p>Maximize your tennis playing experience.</p>
+        </div>
+
+        <ul class="list-unstyled list-bordered text-left m-y-md">
+          <li class="p-y"><strong>Hear First</strong> Get notifications once courts near you become available.</li>
+          <li class="p-y"><strong>Never Pay More</strong> Get notifications for the cheapest discount we can find you.</li>
+          <li class="p-y"><strong>Experienced Only</strong> Set what skill level is just right for you! Our algorithm matches you based on preference.</li>
+        </ul>
+
+        <button class="btn btn-lg btn-primary btn-block">
+          More <span class="visible-lg-inline">Info</span>
+        </button>
+      </div>
+
+    </div>
+<!--
                 <div class="row">
                     <div class="col">
                         <div class="card" style="width: 20rem;">
@@ -167,6 +222,7 @@
                         </div>
                     </div>
                 </div>
+-->
                 
                 
             

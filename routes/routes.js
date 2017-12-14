@@ -15,7 +15,9 @@ module.exports = function(app){
     });
 
     app.get('/', function(req, res, next){
-        res.render('index');
+        res.render('index',  {
+            user : req.user // get the user out of session and pass to template
+        });
     });
 
     app.get('/login', function(req, res, next){
@@ -41,6 +43,12 @@ module.exports = function(app){
     
     app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+    
+    app.get('/settings', isLoggedIn, function(req, res) {
+        res.render('settings', {
             user : req.user // get the user out of session and pass to template
         });
     });
