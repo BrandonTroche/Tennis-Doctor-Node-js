@@ -53,6 +53,12 @@ module.exports = function(app){
         });
     });
     
+    app.get('/scheduling', function(req, res){
+        res.render('scheduling', {
+            user : req.user
+        });
+    });
+    
     
     // =====================================
     // GOOGLE ROUTES =======================
