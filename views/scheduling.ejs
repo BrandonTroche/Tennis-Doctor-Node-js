@@ -14,6 +14,86 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <style>
+
+            
+            .body{
+                height:100%;
+            }
+            
+            .tennis-card{
+                max-width:95%;
+                background-color:snow;
+                margin-left:2.5%;
+            }
+            
+            .image-top{
+                
+                height:100%;
+/*                width:25%;*/
+/*                max-height:25%;*/
+                
+                float:left;
+                position:realtive;
+            }
+            
+            @media screen and (max-width: 980px){
+                .image-top{
+                    width: 204px;
+/*                    height: 20vh;*/
+                }
+                
+            }
+            
+            @media screen and (max-width: 500px){
+                .image-top{
+/*                    width: 40%;*/
+                    display: none;
+/*                    height: 20vh;*/
+                }
+                
+            }
+            
+            @media screen and (min-width: 981px){
+                .image-top{
+                    width: 25%;
+                }
+            }
+            
+            .image-in{
+                width:100%;
+                height:100%;
+/*                height:auto;*/
+            }
+            
+            .title, .location, .rating, .description{
+/*                position:absolute;*/
+                position:realtive;
+                margin-left:30%;
+/*                float:left;*/
+            }
+            
+            .title{
+                margin-top:20px;
+                padding-top:20px;
+            }
+            
+            .location{
+                
+            }
+            
+            .rating{
+                
+            }
+            
+            .description{
+                
+            }
+        
+        </style>
+        
     </head>
     
     <body>
@@ -62,6 +142,214 @@
                 </div>
             </nav>
             
+        </div>
+        
+        <div class="body">
+        
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/20479066_379393265828681_3708400915145818112_n.jpg">
+            
+                </div>
+                
+                <div class="title">McCarren Park Tennis Courts</div>
+
+                <br>
+                
+                <div class="rating">3.4<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">50 Bedford Avenue</div>
+                
+                <br>
+                
+                <div class="description">Opens at 6:00am
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="http://www.newyorktennisclub.com/wp-content/gallery/facilities/nytcsigntreescourt.jpg">
+            
+                </div>
+                
+                <div class="title">New York Tennis Club</div>
+
+                <br>
+                
+                <div class="rating">4.5 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">3081 Harding Ave</div>
+                
+                <br>
+                
+                <div class="description">N/A
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://www.nycgovparks.org/facilities/images/tennis-header.jpg">
+            
+                </div>
+                
+                <div class="title">Crotona Park Tennis Center</div>
+
+                <br>
+                
+                <div class="rating">4.6<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">Crotona Ave &amp; E. 173d St</div>
+                
+                <br>
+                
+                <div class="description">Opens at 7:00 AM
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://sportimeny.smugmug.com/photos/i-663wdbK/0/c6d84838/O/i-663wdbK.jpg">
+            
+                </div>
+                
+                <div class="title">SPORTIME Randall's Island</div>
+
+                <br>
+                
+                <div class="rating">4.3<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">1 Randall's Island</div>
+                
+                <br>
+                
+                <div class="description">Opens at 6:30 AM
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://sportimeny.smugmug.com/photos/i-msJjj4Z/0/48bcea9c/L/i-msJjj4Z-L.jpg">
+            
+                </div>
+                
+                <div class="title">John McEnroe Tennis Academy</div>
+
+                <br>
+                
+                <div class="rating">4.4 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">1 Randall's Island</div>
+                
+                <br>
+                
+                <div class="description">Opens at 6:30 AM
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://www.nypl.org/sites/default/files/download_19.png">
+            
+                </div>
+                
+                <div class="title">Frederick Johnson Tennis Court</div>
+
+                <br>
+                
+                <div class="rating">4.4<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">148th Street Station</div>
+                
+                <br>
+                
+                <div class="description">Opens at 8:00 AM
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+            
+            <div class="tennis-card" style="width:100%;height:35vh;">
+                <div class="image-top">
+            
+                    <img class="image-in" src="https://static1.squarespace.com/static/54c54475e4b060a8975ec7e2/55046f2ae4b04bf62ae0ae36/59d9311fa8ab5a5a83c12c81/1507406126269/?format=1500w">
+            
+                </div>
+                
+                <div class="title">Tennis World NYC Frederick Johnson Park</div>
+
+                <br>
+                
+                <div class="rating">4.7<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div> 
+                
+                <br>
+                
+                <div class="location">148th Street Station, Frederick Johnson Playground</div>
+                
+                <br>
+                
+                <div class="description">Opens at 3:00 PM
+                
+                    <br>
+                    
+                    <i class="fa fa-address-card-o" aria-hidden="true" style="font-size:38px;"></i> $25
+                
+                </div>
+                
+            </div>
+        
         </div>
         
     
