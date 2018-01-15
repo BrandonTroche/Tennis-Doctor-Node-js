@@ -6,21 +6,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <meta name="google-signin-client_id" content="TennisApp.apps.googleusercontent.com">
-
-        
+        <link rel="icon" href="../assets/images/tennis.png">
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-
         
         <title>Tennis Doctors</title>
         
@@ -44,13 +38,21 @@
                 height:1rem;
             }
             
-            .more_space{
-                height:3rem;
-            }
-            
             .right{
                 position:relative;
                 float:right;
+            }
+            
+            #animate-me {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                background: red;
+            }
+            
+            .app-code{
+                background-color:black;
+                color:white;
             }
         </style>
         
@@ -59,8 +61,8 @@
     
     <body ng-controller="MainController as vm">
     
-        <script src="/assets/js/log.js"></script>
-    
+        <script src="/assets/js/app.js"></script>  
+        
         <div id="header">
             
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -76,98 +78,67 @@
                         <li class="nav-item">
                             <a class="nav-link" href="scheduling">Court Scheduling</a>
                         </li>
+<!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="login"><button type="button" class="btn btn-outline-primary" style="height:20px;">Login/Register</button></a>         
+                        </li>
+-->
                     </ul>
+                    <% if (user) {%>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= user.google.name %>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="profile"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                            <a class="dropdown-item" href="settings"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                            <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                        </div>
+                    </div>
+                    <% } else {%>
                     <form action="/login" method="post" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="email" name="email" placeholder="Email" aria-label="UserName">
                         <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" aria-label="Password">
                         <button id="log-button" type="submit" class="btn btn-outline-primary">Login</button>
                         <a class="nav-link" href="signup" style="padding:4px;margin:0;"><button type="button" class="btn btn-outline-primary" style="">Register</button></a>
                     </form>
+                    <% } %>
                     
+<!--    
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                    <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                </div>
+            </div>
+-->
                 </div>
             </nav>
             
         </div>
-        
-        <div class="more_space"></div>
-        
-        <div class="container">
             
-            <div id="page-content">
+        <div id="page-content">
             
-            <form action="/signup" method="post">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">This will also act as your user name.</small>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-<!--
-                <div id='second-pass' class="form-group" hidden="true">
-                    <label for="exampleInputPassword2">Retype Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                </div>
--->
-                <a href="login"><button id="log-button" type="button" class="btn btn-outline-primary">Login</button></a>
-                
-                <button id="sign-up-button" type="submit" class="btn btn-primary">Sign Up!</button>
-                
-                <% if (message.length > 0) { %>
-                <div class="alert alert-danger"><%= message %></div>
-                <% } %>
-                
-                <div class="space"></div>
-                
-                <a href="/auth/google" class="btn btn-danger"><i class="fa fa-google-plus"></i> Log-in with Google</a>
-                
-<!--                <a href="/auth/facebook" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>-->
-                
-<!--
-                <script>
-                    
-//                    $('#log-button').click(function(){
-//                        <%  %>
-//                    });
-                    
-                    function onSignIn(googleUser) {
-                        var profile = googleUser.getBasicProfile();
-                        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                        console.log('Name: ' + profile.getName());
-                        console.log('Image URL: ' + profile.getImageUrl());
-                        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-                    }
-                    
-                    
-                
-                    $('#reg-button').click(function(){
-                        if($('#log-button').hasClass('btn-primary')){
-                            $('#log-button').addClass('btn-outline-primary');
-                            $('#reg-button').addClass('btn-primary');
-                            $('#log-button').removeClass('btn-primary');
-                            $('#reg-button').removeClass('btn-outline-primary');
-                        }
-                        $('#reg-button').hide();
-                        $('#second-pass').removeAttr('hidden');
-                        $('#sign-up-button').removeAttr('hidden');
-                        
-                    });
-                    
-                </script>
-                
--->
-            </form>
-    
+            <div style="text-align:center;padding-top:36px;">
+                <h1>Never play alone again!</h1>
+                <p>Our systems work to make sure you always have a partner</p>
+                <h2 style="padding-top:36px;">Get matched by the following identifiers</h2>
+                <ul>
+                    <li>Skill Level</li>
+                    <li>Site Score</li>
+                    <li>Reliability</li>
+                    <li>Location</li>
+                </ul>
+                <p>Our Algorithm works to make sure you will always have a partner if there's one nearby! Don't settle for a less when you could have more.</p>
             </div>
+            
         </div>
         
-        <div class="more_space"></div>
         
         <div class="space"></div>
-        
-        <div class="more_space"></div>
         
         <div id="footer">
         

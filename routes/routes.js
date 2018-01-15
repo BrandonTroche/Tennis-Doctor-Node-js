@@ -19,6 +19,12 @@ module.exports = function(app){
             user : req.user // get the user out of session and pass to template
         });
     });
+    
+    app.get('/info', function(req, res, next){
+       res.render('info', {
+           user: req.user
+       });
+    });
 
     app.get('/login', function(req, res, next){
         res.render('login'); 
